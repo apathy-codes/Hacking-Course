@@ -1,6 +1,6 @@
 # Hacking-Course
-# Scripts written during hacking intro course by zSecurity
-# Will update as new commands are needed.
+Scripts written during hacking intro course by zSecurity
+Will update as new commands are needed.
 
 # Commands required for scripts:
 
