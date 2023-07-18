@@ -11,10 +11,10 @@ Local WebServer service on Kali
 # service apache2 start
 
 NetFilterQueue scripts to capture packets: 
-# iptables --flush
-# iptables -I FORWARD -j NFQUEUE --queue-num 0                 target
-# iptables -I OUTPUT -j NFQUEUE --queue-num 0                  local
-# iptables -I INPUT -j NFQUEUE --queue-num 0                   local
+## iptables --flush
+## iptables -I FORWARD -j NFQUEUE --queue-num 0                 target
+## iptables -I OUTPUT -j NFQUEUE --queue-num 0                  local
+## iptables -I INPUT -j NFQUEUE --queue-num 0                   local
 
 Enable Bettercap for SSL strip:
 # bettercap -iface eth0 -caplet hstshijack/hstshijack
