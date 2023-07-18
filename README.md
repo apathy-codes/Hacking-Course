@@ -15,6 +15,7 @@ iptables --flush
 iptables -I FORWARD -j NFQUEUE --queue-num 0  
 iptables -I OUTPUT -j NFQUEUE --queue-num 0    
 iptables -I INPUT -j NFQUEUE --queue-num 0  
+
 Output/Input track your machines input/out.  
 Forward tracks input coming from the hooked machine
 
