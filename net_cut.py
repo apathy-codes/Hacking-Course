@@ -1,5 +1,6 @@
 # iptables -I FORWARD -j NFQUEUE --queue-num 0
 # iptables --flush
+# script just drops all packets the machine sends.
 
 import netfilterqueue
 
