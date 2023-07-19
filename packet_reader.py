@@ -27,10 +27,3 @@ def process_packet(packet):
 queue = netfilterqueue.NetfilterQueue()
 queue.bind(0, process_packet)
 queue.run()
-
-# service apache2 start
-# echo 1 > /proc/sys/net/ipv4/ip_forward
-# iptables -I FORWARD -j NFQUEUE --queue-num 0                 target
-# iptables -I OUTPUT -j NFQUEUE --queue-num 0                  local
-# iptables -I INPUT -j NFQUEUE --queue-num 0                   local
-# iptables --flush
