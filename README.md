@@ -1,6 +1,7 @@
 # Hacking-Course
 Scripts written during hacking intro course by zSecurity
 Will update as new commands are needed.
+This is for educational purposes ran on VM machines, do not access devices you do not own or have authorization to attack.
 
 ## Commands required for scripts:
 
