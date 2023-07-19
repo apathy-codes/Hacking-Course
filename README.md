@@ -21,7 +21,8 @@ Output/Input track your machines input/out.
 Forward tracks input coming from the hooked machine
 
 ### Enable Bettercap for SSL strip:
-bettercap -iface eth0 -caplet hstshijack/hstshijack
+bettercap -iface eth0 -caplet hstshijack/hstshijack  
+bettercap runs on a proxy on 8080, use iptables INPUT + OUTPUT instead of FORWARD.
 
 ### Running custom Kali Linux with this additional software:  
 Terminator  
